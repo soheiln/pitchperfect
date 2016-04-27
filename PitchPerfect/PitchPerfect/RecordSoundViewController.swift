@@ -36,7 +36,7 @@ class RecordSoundViewController: UIViewController, AVAudioRecorderDelegate {
         recordButton.enabled = false
         stopButton.enabled = true
         
-        let dirPath = NSSearchPathForDirectoriesInDomains(.DocumentationDirectory, .UserDomainMask, true)[0] as String
+        let dirPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
         
         let recordingName = "recordedAudio.wav"
         let pathArray = [dirPath, recordingName]
@@ -49,7 +49,7 @@ class RecordSoundViewController: UIViewController, AVAudioRecorderDelegate {
         try! audioRecorder = AVAudioRecorder(URL: filePath!, settings: [:])
         audioRecorder.delegate = self
         audioRecorder.meteringEnabled = true
-        print(audioRecorder.prepareToRecord())
+        audioRecorder.prepareToRecord()
         audioRecorder.record()
     }
     
